@@ -1,0 +1,254 @@
+<odoo>
+
+    <report
+        id="report_mission"
+        model="fiche.mission"
+        string="Fiche Mission"
+        name="mission.fiche_mission"
+        file="mission.fiche_mission"
+        report_type="qweb-pdf" />
+
+    <template id="fiche_mission">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                
+                <style> mark {
+                background-color: #DCDCDC;
+                color: black;
+            
+                </style>
+                    
+                    <div style="height:80px;vertical-align:center;border: 3px;border-style: solid;background-color:#DCDCDC;color: black;padding:0px; margin:0px;text-align: center" class="cls_009">
+                    <h4><br> FICHE DE MISSION </br></h4></div>
+
+                    <div style="position:absolute;left:720px;top:80.26px">
+                    <h6>DATE  <span t-field="o.date_create"/></h6>
+                    </div>
+
+                    <div style="position:absolute;top:138.26px">
+                    <h5><mark>CLIENT : </mark><span>........</span></h5>
+                    </div>
+
+                    <div style="position:absolute;top:178.26px">
+                    <h5><mark>APPELANT: </mark><span>…………</span></h5>
+                    <p>Heure de départ (INJAD) : <span>……h……</span></p> 
+                    
+                    </div>
+                     <div style="position:absolute;top:240.26px">
+                    Base de départ :<span> ……h……</span> 
+                    </div>
+
+                    <div style="position:absolute;left:300px;top:178.26px">
+                    Heure d’appel : <span>……h……</span> 
+                    </div>
+
+                    <table  style="position:absolute;left:300px;top:240.26px;width:60%">
+                        <tr>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="30%">Ain Sebaa </td> 
+                            <td style="border-bottom: none;padding:0px; margin:0px"><span><t t-if="o.base_depart_ain_sbaa">
+                                    <input type="checkbox" id="checkbox104_anything_you_give" checked="checked"/>
+                                        <label for="checkbox" class="label-table form-check-label"></label>
+                                    </t>
+                                <t t-if="not o.base_depart_ain_sbaa">
+                                    <input type="checkbox" id="checkbox104_anything_you_give"/>
+                                        </t></span></td>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="30%"> Mâarif</td> 
+                            <td style="border-bottom: none;padding:0px; margin:0px"><span> <t t-if="o.base_depart_maarif">
+                                    <input type="checkbox" id="checkbox104_anything_you_give" checked="checked"/>
+                                        <label for="checkbox" class="label-table form-check-label"></label>
+                                    </t>
+                                <t t-if="not o.base_depart_maarif">
+                                    <input type="checkbox" id="checkbox104_anything_you_give"  />
+                            </t></span></td>
+                        </tr>
+
+                    </table>
+
+                    <div style="position:absolute;top:270.26px">
+                    <strong>N° DE DOSSIER : <span>…………………</span></strong>
+                    </div>
+
+                    <div style="position:absolute;top:305.26px">
+                    <h5><mark>Nature Intervention : </mark><span> </span></h5>
+                    </div>
+
+                    <div style="position:absolute;top:352.26px">
+                    <h5><mark>AMBULANCE : </mark><span> </span></h5> 
+                    </div>
+
+                    <div style="position:absolute;top:400.26px">
+                    <h5><mark><u>RENSEIGNEMENTS MALADE</u></mark></h5>
+                    <table  style="width:100%">
+                        <tr>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="50%" >Nom et prénom du malade : <span>……………………………………</span></td>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="50%" >Tél :<span>……………………………………</span></td>
+                        </tr>
+                    </table>
+                    </div>
+                    <div style="position:absolute;top:455.26px">
+                        Adresse : <span>……………</span>
+                    </div>
+                    <div style="position:absolute;top:480.26px">
+                        Nature de la maladie : <span>……………</span>
+                    </div>
+                    <div style="position:absolute;top:505.26px">
+                        Date de naissance (Age) : <span>………………………</span>
+                    </div>
+                    <table  style="position:absolute;top:530.26px;width:60%">
+                        <tr>   
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="20%"> Sexe: </td>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="20%">masculin </td> 
+                                <td style="border-bottom: none;padding:0px; margin:0px" width="20%">
+                                    <span><t t-if="o.masculin">
+                                    <input type="checkbox" id="checkbox104_anything_you_give" checked="checked"/>
+                                    <label for="checkbox" class="label-table form-check-label"></label>
+                                            </t>
+                                        <t t-if="not o.masculin">
+                                    <input type="checkbox" id="checkbox104_anything_you_give"  />
+                                            </t></span></td>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="20%"> féminin</td> <td style="border-bottom: none;padding:0px; margin:0px" width="20%">
+                            <span> <t t-if="o.feminin">
+                                                            <input type="checkbox" id="checkbox104_anything_you_give" checked="checked"/>
+                                                                <label for="checkbox" class="label-table form-check-label"></label>
+                                                            </t>
+                                                            <t t-if="not o.feminin">
+                                                            <input type="checkbox" id="checkbox104_anything_you_give"  />
+                                                            </t></span></td>
+                        </tr>
+
+                    </table>
+                    <table  style="position:absolute;top:555.26px;width:60%">
+                        <tr>   
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="20%"> Mutuelle: </td>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="20%">Oui: </td> 
+                                <td style="border-bottom: none;padding:0px; margin:0px">
+                                <span><t t-if="o.mutuelle_avec">
+                                    <input type="checkbox" id="checkbox104_anything_you_give" checked="checked"/>
+                                    <label for="checkbox" class="label-table form-check-label"></label>
+                                    </t>
+                                    <t t-if="not o.mutuelle_avec">
+                                    <input type="checkbox" id="checkbox104_anything_you_give"  />
+                                    </t></span></td>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="20%">Non: </td> <td style="border-bottom: none;padding:0px; margin:0px" >
+                                    <span> <t t-if="o.mutuelle_sans">
+                                            <input type="checkbox" id="checkbox104_anything_you_give" checked="checked"/>
+                                            <label for="checkbox" class="label-table form-check-label"></label>
+                                            </t>
+                                            <t t-if="not o.mutuelle_sans">
+                                            <input type="checkbox" id="checkbox104_anything_you_give"/>
+                                            </t></span></td>
+                        </tr>
+
+                    </table>
+
+                    <div style="position:absolute;top:580.26px">
+                    LIEU DE PRISE EN CHARGE : <span>…………………</span> 
+                     <table  style="width:100%">
+                        <tr>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="33.33%">Heure d’arrivé : <span> ………h…………</span></td>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="33.33%" ><strong>Déclarée à :<span>……………………</span></strong></td>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="33.33%" ><strong>Par :<span>……………</span></strong></td>
+                        </tr>
+                    </table>
+                    </div>
+                    <div style="position:absolute;top:630.26px">
+                    <span>Heure de départ : ………h……</span>
+                    <table  style="width:100%">
+                        <tr>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="33.33%">NOM FAMILLE DU PATIENT : <span> ……………</span></td>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="33.33%" >ARRVEE  A  :<span>…………</span></td>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="33.33%" >HEURE FIN MISSION A :<span>……………</span></td>
+                        </tr>
+                    </table>
+                    </div>
+
+                    <div style="position:absolute;top:680.26px">
+                    <span>SIGNATURE :   </span> 
+                    </div>
+
+                    <div style="position:absolute;top:720.26px">
+                    <h5><mark><u>DESTINATION</u></mark></h5>
+                    <table  style="width:100%">
+                        <tr>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="60%">Destination 1 : <span> ……………</span></td>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="20%" >Départ à  :<span>…………</span></td>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="20%" > Arrivé :<span>……………</span></td>
+                        </tr>
+                         <tr>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="60%">Destination 2 : <span> ……………</span></td>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="20%" >Départ à  :<span>…………</span></td>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="20%" > Arrivé :<span>……………</span></td>
+                        </tr>
+                         <tr>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="60%">Destination 3 : <span> ……………</span></td>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="20%" >Départ à  :<span>…………</span></td>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="20%" > Arrivé :<span>……………</span></td>
+                        </tr>
+                        <tr>
+                            <th style="border-bottom: none;padding:0px; margin:0px" width="60%">Fin de mission: <span>……h……</span></th>
+                            <th style="border-bottom: none;padding:0px; margin:0px" width="20%" >Déclarée à :<span>…………</span></th>
+                            <th style="border-bottom: none;padding:0px; margin:0px" width="20%" > Par :<span>……………</span></th>
+                        </tr>
+                    </table>
+                    </div>
+
+                    <div style="position:absolute;top:870.26px">
+                    <h5><mark><u>EQUIPE</u></mark></h5>
+                    <table  style="width:100%">
+                        <tr>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="100%">Médecin : <span> ……………</span></td>
+                        </tr>
+                         <tr>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="100%">Infirmière :<span>……………</span></td>
+                        </tr>
+                         <tr>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="100%">Ambulancier :<span>……………</span></td>
+                        </tr>
+                    </table>
+                    </div>
+
+                      
+                    <table  style="position:absolute;top:1020.26px;width:100%">
+                        <tr>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="50%"><h5><mark><u>REGLEMENT</u></mark></h5></td>
+                            <td style="border-bottom: none;padding:0px; margin:0px" width="50%"><h5><mark><u>CONSOMATIONS</u></mark></h5></td>
+                            
+                        </tr>
+                         <tr>
+                            <tr>
+                                <td style="border-bottom: none;padding:0px; margin:0px"> Consultation : <span>……………</span>DH</td>
+                                <td style="border-bottom: none;padding:0px; margin:0px" > ……………………………… : <span>……………</span>DH</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: none;padding:0px; margin:0px"> Transport : <span>……………</span>DH</td>
+                                <td style="border-bottom: none;padding:0px; margin:0px"> ……………………………… : <span>……………</span>DH</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: none;padding:0px; margin:0px"> Couveuse : <span>……………</span>DH</td>
+                                <td style="border-bottom: none;padding:0px; margin:0px"> ……………………………… : <span>……………</span>DH</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: none;padding:0px; margin:0px"> Injection   : <span>……………</span>DH</td>
+                                <td style="border-bottom: none;padding:0px; margin:0px"> ……………………………… : <span>……………</span>DH</td>
+                            </tr>
+                        </tr>
+
+        
+                    </table>
+
+                     <div style="position:absolute;top:1170.26px">
+                    <h5><mark><u>CARBURANT :</u></mark> <span> ……………… DH</span></h5>
+                    </div>
+
+                    <div style="position:absolute;left:300px;top:1225.26px">
+                    <h5><mark><u>Total  :</u></mark><span> ……………… DH</span></h5>
+                    </div>
+                            
+
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id='mission_view_form' model='ir.ui.view'>
+            <field name="name">mission.form</field>
+            <field name="model">fiche.mission</field>
+            <field name="arch" type="xml">
+               <form>
+               <sheet>
+                    <div class='oe_title'>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                     <group col="2">
+                      <group>
+                            <field name="base_depart_ain_sbaa" eval="False"/>
+                            <field name="base_depart_maarif" eval="False"/>
+                            <field name="masculin" eval="False" />
+                            <field name="feminin" eval="False" />
+                            <field name="mutuelle_avec" eval="False" />
+                            <field name="mutuelle_sans" eval="False" />
+                            <field name="date_create" invisible="1"/>
+                        </group>
+                        </group>
+                </sheet>
+             </form>
+            </field>
+        </record>
+
+        <record id="mission_view_tree" model="ir.ui.view">
+            <field name="name">mission.tree</field>
+            <field name="model">fiche.mission</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree> 
+            </field>
+        </record>
+
+
+         <record model="ir.actions.act_window" id="mission_action">
+            <field name="name">Fiche Mission</field>
+            <field name="res_model">fiche.mission</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                    <p class="oe_view_nocontent_smiling_face"> créer votre premièr fiche de mission </p>
+            </field>
+        </record>
+
+        <menuitem name="Missions" 
+    id="menu_root" 
+    sequence="115" 
+    groups="base.group_user" 
+    web_icon="mission,static/description/icon.png"/>
+
+    <menuitem name="Fiche Mission"  
+    parent="menu_root" 
+    id="mission_menu" 
+    sequence="1"
+    action="mission_action" 
+    groups ="base.group_user"/>
+    
+    </odoo>
